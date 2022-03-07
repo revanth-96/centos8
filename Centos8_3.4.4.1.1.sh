@@ -1,8 +1,14 @@
 #!/bin/bash
 
-# 3.4.4 Configure IPv4 iptables
+# 3.4.4.1.1 Configure IPv4 iptables
 echo
-echo \*\*\*\* 3.4.4 Configure IPv4 iptables
+echo \*\*\*\* 3.4.4.1.1 Configure IPv4 iptables
+
+
+# 3.4.4.1.1 Ensure iptables default deny firewall policy
+sudo iptables -P INPUT DROP
+sudo iptables -P OUTPUT DROP
+sudo iptables -P FORWARD DROP
 
 # 3.4.4.1.2 Ensure iptables loopback traffic is configured
 sudo iptables -A INPUT -i lo -j ACCEPT
@@ -23,12 +29,8 @@ sudo iptables -A INPUT -p tcp --dport 443 -m state --state NEW -j ACCEPT
 sudo iptables -A INPUT -p tcp --dport 80 -m state --state NEW -j ACCEPT
 sudo iptables -A INPUT -p tcp --dport 514 -m state --state NEW -j ACCEPT
 
-# 3.4.4.1.1 Ensure iptables default deny firewall policy
-sudo iptables -P INPUT DROP
-sudo iptables -P OUTPUT DROP
-sudo iptables -P FORWARD DROP
 
-# 3.4.4.1.5 Ensure iptables rules are saved
+# Ensure iptables rules are saved
 service iptables save
 
 # 3.4.4.1.6 Ensure iptables is enabled and running
