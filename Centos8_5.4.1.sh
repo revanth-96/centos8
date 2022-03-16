@@ -15,3 +15,4 @@ grep "dcredit" /etc/security/pwquality.conf && sed -i "/dcredit/ cdcredit = -1" 
 grep "ucredit" /etc/security/pwquality.conf && sed -i "/ucredit/ cucredit = -1" /etc/security/pwquality.conf
 grep "ocredit" /etc/security/pwquality.conf && sed -i "/ocredit/ cocredit = -1" /etc/security/pwquality.conf
 grep "lcredit" /etc/security/pwquality.conf && sed -i "/lcredit/ clcredit = -1" /etc/security/pwquality.conf
+grep "minclass" /etc/security/pwquality.conf && sed -i "/minclass/ cminclass = 4" /etc/security/pwquality.conf
